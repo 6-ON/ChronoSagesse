@@ -1,0 +1,29 @@
+<h1 class="text-3xl font-bold text-center capitalize"><% if (isAdd) { %> Add <% } else {%>edit<% } %> Blog</h1>
+<h1 class="text-lg font-thin text-red-700 text-center capitalize"><% if (typeof errors !== 'undefined') { %>
+ <%- errors %>
+<% } %></h1>
+
+<form <% if (isAdd) { %>
+    action="/blogs" <% } else { %> action="/blogs/<%- id %>" <%}%> method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="title" value="<% if (!isAdd) { %><%- title %><% } %>" />
+    <select name="categories[]" multiple>
+        <% categories.forEach(ct => { %>
+        <option value="<%- ct.id %>"><%- ct.name %></option>
+        <% }) %>
+    </select>
+    <div>
+        <label>blog image</label>
+        <input id="image" type="file" name="image" />
+        <img
+            src=" <% if (!isAdd) { %>
+            <%-'/uploads/' + image %>
+        <% } %>"
+            id="preview"
+            class="w-96 aspect-video bg-gray-700 object-cover "
+        />
+    </div>
+    <textarea name="content" id="" cols="30" rows="10"><% if (!isAdd) { %><%- content %><% } %></textarea>
+    <button type="submit">Save</button>
+</form>
+
+<script src="/js/preview-image.js"></script>

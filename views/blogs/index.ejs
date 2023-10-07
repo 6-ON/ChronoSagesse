@@ -1,0 +1,37 @@
+<div class="text-primary-300">
+    <h2 class="text-3xl font-bold font-roboto text-center py-10">
+        Latest Articles
+        <a href="/blogs/add">
+            <i class="fa-solid fa-circle-plus"></i>
+        </a>
+    </h2>
+    <!-- search form  -->
+    <div class="flex justify-center float-right">
+        <input type="text" id="search-input" placeholder="Search" class="border-2 border-primary-300 rounded-lg px-4 py-2">
+        <a id="search-link" type="submit" class="bg-primary-300 text-white px-4 py-2 rounded-lg">Search</a>
+    </div>
+    <div class="flex text-center">
+        <div class="capitalize px-10">
+            <h2 class="font-semibold flex gap-2">
+                categories
+                <a href="/categories/add">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </a>
+            </h2>
+            <ul class="flex flex-col gap-5 mt-7">
+                <li><a href="/blogs">All</a></li>
+                <% categories.forEach(({id,name}) => { %>
+                <li><a href="?ct=<%- id  %>"><%- name %></a>
+                    <a href="/categories/<%- id %>/edit">
+                        <i class="fa-solid fa-edit"></i>
+                </a>
+            </li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="flex gap-2 pe-8 flex-wrap justify-center mb-8">
+            <% blogs.forEach(blog => { %> <%- include("./components/card",{...blog}) %> <% }) %>
+        </div>
+    </div>
+</div>
+<script src="/js/search.js"></script>

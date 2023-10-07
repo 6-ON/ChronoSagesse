@@ -1,0 +1,20 @@
+<div class="rounded-lg overflow-hidden w-[25rem] bg-secondary-100">
+    <div class="relative">
+        <a href="/blogs/<%- id %>">
+            <img src="uploads/<%- image %>" class="h-56 w-full object-cover" alt="" />
+        </a>
+        <span  class="absolute bottom-5 left-0 rounded-r-2xl p-1 px-4 bg-primary-300 text-secondary-300"
+            ><%- categories.map((c)=>c.name).join(',') %></a
+        >
+    </div>
+    <div class="p-4 text-justify">
+        <a href="/blogs/<%- id %>" class="hover:underline font-semibold text-3xl text-primary-300 capitalize"><%- title %></a>
+        <p class="text-primary-200">
+            <%- content %>
+        </p>
+        <div class="flex justify-between text-primary-200 mt-5">
+            <span class="font-mono"><%- created_at.toJSON().slice(0,10) %></span>
+            <span>author</span>
+        </div>
+    </div>
+</div>

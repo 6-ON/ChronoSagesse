@@ -1,14 +1,28 @@
-<%- include('./partials/header'); %>
 <main>
-    <div>
-        <h1>At least we can see something now</h1>
-        <p>This is visual of templating through EJS</p>
+    <div
+        class="bg-gradient-to-r from-primary-300 flex max-md:flex-wrap items-center justify-around to-primary-200 text-secondary-300 px-10 pt-10"
+    >
+        <div class="">
+            <h1 class="text-3xl font-bold max-w-lg text-justify">
+                The latest articles and courses to help you upgrade your skills.
+            </h1>
+            <p class="max-w-md text-white text-justify">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem tempore quibusdam molestiae quasi
+                delectus quas voluptatibus! Optio error repellendus dolore, ullam blanditiis corporis provident a!
+                Tempora culpa reprehenderit tempore sunt.
+            </p>
+        </div>
+        <img class="max-w-xl object-contain aspect-square" src="/img/hero.png" alt="" />
+    </div>
+    <div class="text-primary-300">
+        <h2 class="text-3xl font-bold font-roboto text-center py-10">Latest Articles</h2>
+        <div class="flex gap-2 px-8">
+            <% blogs.forEach(blog => { %>
+                <%- include("./blogs/components/card",{...blog}) %>
+            <% }) %>
+        </div>
+        <div class="py-8 flex justify-center">
+            <a href="" class="px-8 py-2 bg-primary-300 text-secondary-300 rounded-lg ">Read more</a>
+        </div>
     </div>
 </main>
-
-<footer >
-<%- include('./partials/footer'); %>
-</footer>
-
-</body> 
-</html>

@@ -1,0 +1,27 @@
+<div class="px-16 py-4">
+    <h1 class="text-3xl font-bold py-8">
+        <%- title %><a href="<%- id %>/edit">
+            <i class="fas fa-edit"></i>
+        </a>
+    </h1>
+    <div class="flex items-center justify-between w-full mb-6">
+        <div class="flex gap-5 items-center">
+            <img
+                src="/img/usr-demo.jpg"
+                class="rounded-full overflow-hidden border-blue-300 border-solid border-2 w-16 h-16 object-cover"
+                alt=""
+                srcset=""
+            />
+            <h3 class="text-lg font-semibold">Author</h3>
+        </div>
+        <span><%- created_at.toJSON().slice(0,10) %></span>
+    </div>
+    <img
+        class="rounded-lg h-[50rem] w-[90rem] object-cover aspect-video"
+        src="/uploads/<%- image %>"
+        alt="<%- title %>"
+        srcset=""
+    />
+</div>
+
+<p class="p-5 font-medium"><%- content %></p>

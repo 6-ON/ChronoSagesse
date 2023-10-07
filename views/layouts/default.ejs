@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+            integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm"
+            crossorigin="anonymous"
+        />
+
+        <title><%= title %></title>
+    </head>
+    <body class="font-roboto bg-secondary-200">
+        <div class="min-h-screen flex flex-col">
+            <%- include("../partials/header") %> <%- body %> <%- include("../partials/footer") %>
+        </div>
+        <script src="https://kit.fontawesome.com/8e5e6b179c.js" crossorigin="anonymous"></script>
+    </body>
+</html>
