@@ -3,6 +3,11 @@
         <%- title %><a href="<%- id %>/edit">
             <i class="fas fa-edit"></i>
         </a>
+        <form action="/blogs/<%- id %>/del" method="POST" class="inline">
+            <button type="submit">
+                <i class="fas fa-trash text-red-700"></i>
+            </button>
+        </form>
     </h1>
     <div class="flex items-center justify-between w-full mb-6">
         <div class="flex gap-5 items-center">

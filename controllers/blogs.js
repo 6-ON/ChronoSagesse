@@ -2,7 +2,7 @@
  * @typedef {import('express').Request} Request
  * @typedef {import('express').Response} Response
  */
-const {Blog,Category} = require('../models')
+const { Blog, Category } = require('../models')
 const { readFile, writeFile } = require('fs/promises')
 const { extname } = require('path')
 
@@ -36,11 +36,11 @@ exports.add = async function (req, res) {
         title: 'Add Blog',
         isAdd: true,
         categories: await Category.getAll(),
-        errors : req.flash('error')
+        errors: req.flash('error'),
     })
 }
 /**
- * 
+ *
  */
 
 exports.save = async function (req, res) {
@@ -59,7 +59,7 @@ exports.save = async function (req, res) {
             res.redirect('/blogs')
         }
         res.end()
-    } catch (err) { 
+    } catch (err) {
         req.flash('error', err.message)
         res.redirect('/blogs/add')
     }
@@ -75,7 +75,7 @@ exports.edit = async function (req, res) {
         isAdd: false,
         ...blog,
         categories: await Category.getAll(),
-        errors : req.flash('error')
+        errors: req.flash('error'),
     })
 }
 /**
@@ -112,6 +112,11 @@ exports.update = async function (req, res) {
  * @param {Request} req
  * @param {Response} res
  */
-exports.delete = function (req, res) {
-    // todo : delete from db
+exports.delete = async function (req, res) {
+    try {
+        await Blog.delete(req.params.id)
+    } finally {
+        req.flash('info', 'Blog deleted')
+        res.redirect('/blogs')
+    }
 }
