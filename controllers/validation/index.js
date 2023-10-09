@@ -28,4 +28,3 @@ exports.updateCategorySchema = Joi.object({
     id: Joi.number().required(),
     name: Joi.string().required(),
 });
-// (async()=>console.log(await this.updateBlogSchema.validateAsync({id:5,image:''})))();

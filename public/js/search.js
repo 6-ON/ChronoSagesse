@@ -8,7 +8,6 @@ searchInput.addEventListener('input', () => {
     searchLink.href = url;
 });
 searchInput.addEventListener('keyup', (event) => {
-    console.log(event.keyCode);
     if (event.keyCode === 13) {
         searchLink.click();
     }

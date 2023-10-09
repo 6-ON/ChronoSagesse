@@ -65,7 +65,6 @@ exports.getAll = async ({ title, ct, size } = {}) => {
     if (size) {
         sql += ' limit ' + size
     }
-    console.log(sql)
     const [rows] = await db.query(sql)
 
     const blogs = rows.map((blog) => {
@@ -74,11 +73,3 @@ exports.getAll = async ({ title, ct, size } = {}) => {
     })
     return blogs
 }
-// (async ()=> console.log(
-//   await this.add({
-//         title: 'test',
-//         image: 'test',
-//         content: 'test',
-//         category: [1, 2, 3],
-//     })
-// ))();

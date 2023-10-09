@@ -90,10 +90,8 @@ exports.update = async function (req, res) {
         const target = `./public/uploads/${image}`
         let blog = image ? { ...req.body, image } : { ...req.body }
         blog.id = req.params.id
-        console.log(blog, 0)
         const validated = await updateBlogSchema.validateAsync(blog)
 
-        console.log(validated)
         if (image) {
             const filedata = await readFile(tmp)
             await writeFile(target, filedata)
