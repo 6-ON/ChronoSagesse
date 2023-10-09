@@ -14,11 +14,9 @@ CREATE TABLE
         id INT(11) NOT NULL AUTO_INCREMENT,
         title VARCHAR(255) NOT NULL,
         image VARCHAR(255) NOT NULL,
-        body TEXT NOT NULL,
-        category_id INT(11) NOT NULL,
+        content TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (id),
-        FOREIGN KEY (category_id) REFERENCES categories(id)
+        PRIMARY KEY (id)
     );
 
 CREATE TABLE
