@@ -2,9 +2,9 @@ const Joi = require('joi');
 
 // Schema for adding a new blog
 exports.addBlogSchema = Joi.object({
-    title: Joi.string().required(),
-    image: Joi.string().required(),
-    content: Joi.string().required().messages({
+    title: Joi.string().trim().min(3).max(30).required(),
+    image: Joi.string().uri().required(),
+    content: Joi.string().trim().required().messages({
         'string.empty': 'Content is required',
     }),
     categories: Joi.array().items(Joi.string()).required(),
@@ -13,9 +13,9 @@ exports.addBlogSchema = Joi.object({
 // Schema for updating an existing blog
 exports.updateBlogSchema = Joi.object({
     id: Joi.number().required(),
-    title: Joi.string(),
-    image: Joi.string(),
-    content: Joi.string().messages({
+    title: Joi.string().trim().min(3).max(30),
+    image: Joi.string().uri(),
+    content: Joi.string().trim().messages({
         'string.empty': 'Content is required',
     }),
     categories: Joi.array().items(Joi.string()),

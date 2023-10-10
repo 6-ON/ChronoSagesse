@@ -1,4 +1,3 @@
-const db = require('../../db')
 const blog = require('../blog')
 
 describe('Blog model', () => {
@@ -13,6 +12,7 @@ describe('Blog model', () => {
         const addedBlog = await blog.add(newBlog)
 
         expect(addedBlog).toHaveProperty('id')
+        // tobe number
         expect(addedBlog.title).toBe(newBlog.title)
         expect(addedBlog.image).toBe(newBlog.image)
         expect(addedBlog.content).toBe(newBlog.content)
